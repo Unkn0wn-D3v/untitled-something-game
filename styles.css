@@ -1,0 +1,111 @@
+html,
+body {
+    max-width: 100vh;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: salmon;
+    margin: 0;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    height: 100vh;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.menu-title {
+    color: white;
+    font-size: 3em;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#random-text {
+    position: absolute;
+    right: -17%;
+    top: 30%;
+    color: yellow;
+    text-shadow: 1px 1px 0 black;
+    font-size: .7em;
+    max-width: 10em;
+    text-align: center;
+    vertical-align: middle;
+    line-height: .9em;
+    font-family: monospace;
+
+    animation: yippee 3s infinite ease-in-out;
+}
+
+.menu-button {
+    background-color: transparent;
+    border: 4px white solid;
+    border-radius: 2em;
+    color: white;
+    background-color: salmon;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 3em;
+    font-weight: bold;
+    padding: 0 1rem;
+    margin: .1em;
+
+    transition: color 300ms ease, transform 300ms ease;
+}
+
+.menu-button:hover {
+    background-color: white;
+    color: salmon;
+    transform: translateY(.05em);
+}
+
+.slide-out {
+    transform: translateX(-180vh);
+    animation: slide-out 5s 1 ease-in-out;
+}
+
+.slide-in {
+    transform: none;
+    animation: slide-in 5s 1 ease-in-out;
+}
+
+@keyframes yippee {
+    from {
+        transform: scale(1) rotate(-10deg);
+    }
+
+    50% {
+        transform: scale(1.1) rotate(-10deg);
+    }
+
+    to {
+        transform: scale(1) rotate(-10deg);
+    }
+}
+
+@keyframes slide-out {
+    from {
+        transform: none;
+    }
+
+    to {
+        transform: translateX(-180vh);
+    }
+}
+
+
+@keyframes slide-in {
+    from {
+        transform: translateX(180vh);
+    }
+
+    to {
+        transform: none;
+    }
+}
