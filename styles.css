@@ -1,7 +1,9 @@
 html,
 body {
-    max-width: 100vh;
+    display: block;
+    max-width: 100%;
     overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 body {
@@ -15,6 +17,8 @@ body {
     justify-content: center;
     flex-direction: column;
 
+    user-select: none;
+
     height: 100vh;
 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -26,6 +30,74 @@ body {
     position: relative;
     text-align: center;
     vertical-align: middle;
+
+    user-select: none;
+}
+
+.credits {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    user-select: none;
+
+    margin: 15px;
+    height: 100vh;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    animation: creditsScroll 15s 1 linear;
+}
+
+.credits-text {
+    color: white;
+    text-align: center;
+    font-size: 2em;
+
+    user-select: none;
+
+    line-height: 50px;
+}
+
+.level {
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    color: white;
+    position: absolute;
+
+    height: 100vh;
+    width: 100vw;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.level-title {
+    color: white;
+    font-size: 3em;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+
+    user-select: none;
+
+    margin: 10px;
+}
+
+.level-text {
+    color: white;
+    font-size: 1.5em;
+    position: relative;
+    text-align: center;
+    vertical-align: middle;
+
+    user-select: none;
+
+    margin: 10px;
 }
 
 #random-text {
@@ -55,6 +127,7 @@ body {
     font-weight: bold;
     padding: 0 1rem;
     margin: .1em;
+    outline: none;
 
     transition: color 300ms ease, transform 300ms ease;
 }
@@ -65,14 +138,20 @@ body {
     transform: translateY(.05em);
 }
 
+.menu-button:focus {
+    background-color: white;
+    color: salmon;
+    transform: translateY(.05em);
+}
+
 .slide-out {
-    transform: translateX(-180vh);
-    animation: slide-out 5s 1 ease-in-out;
+    transform: translateX(-100vw);
+    animation: slide-out 4s 1 ease-in-out;
 }
 
 .slide-in {
     transform: none;
-    animation: slide-in 5s 1 ease-in-out;
+    animation: slide-in 4s 1 ease-in-out;
 }
 
 @keyframes yippee {
@@ -95,17 +174,27 @@ body {
     }
 
     to {
-        transform: translateX(-180vh);
+        transform: translateX(-100vw);
     }
 }
 
 
 @keyframes slide-in {
     from {
-        transform: translateX(180vh);
+        transform: translateX(100vw) translateY(-100vh);
     }
 
     to {
-        transform: none;
+        transform: translateX(0) translateY(-100vh);
+    }
+}
+
+@keyframes creditsScroll {
+    from {
+        transform: translateY(100vh);
+    }
+
+    to {
+        transform: translateY(-100vh);
     }
 }
